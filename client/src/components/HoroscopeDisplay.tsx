@@ -1,17 +1,20 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, Star } from "lucide-react";
+import { ArrowLeft, Calendar, Star, Moon, Sun, Sunrise } from "lucide-react";
 import { ZodiacSign } from "../lib/zodiacData";
-import { generateHoroscope } from "../lib/horoscopeGenerator";
+import { generatePersonalizedHoroscope } from "../lib/horoscopeGenerator";
+import { AstrologicalProfile } from "../lib/astroCalculations";
+import { BirthDetails } from "./BirthDetailsForm";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 
 interface HoroscopeDisplayProps {
-  sign: ZodiacSign;
+  astroProfile: AstrologicalProfile;
+  birthDetails: BirthDetails;
   onBack: () => void;
 }
 
-const HoroscopeDisplay: React.FC<HoroscopeDisplayProps> = ({ sign, onBack }) => {
-  const horoscope = generateHoroscope(sign);
+const HoroscopeDisplay: React.FC<HoroscopeDisplayProps> = ({ astroProfile, birthDetails, onBack }) => {
+  const horoscope = generatePersonalizedHoroscope(astroProfile);
   
   const today = new Date().toLocaleDateString('en-US', { 
     weekday: 'long', 
@@ -45,22 +48,64 @@ const HoroscopeDisplay: React.FC<HoroscopeDisplayProps> = ({ sign, onBack }) => 
         </div>
       </motion.div>
 
-      {/* Sign Header */}
+      {/* Astrological Profile Header */}
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.6 }}
         className="text-center mb-8"
       >
-        <div className="flex items-center justify-center space-x-4 mb-4">
-          <div className="text-6xl">{sign.symbol}</div>
-          <div>
-            <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-purple-300">
-              {sign.name}
-            </h1>
-            <p className="text-xl text-purple-300">{sign.dates}</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          {/* Sun Sign */}
+          <div className="bg-gradient-to-br from-yellow-800/20 to-orange-800/20 rounded-lg p-4 border border-yellow-300/20">
+            <div className="flex items-center justify-center space-x-2 mb-2">
+              <Sun className="w-5 h-5 text-yellow-400" />
+              <h3 className="text-lg font-semibold text-yellow-200">Sun Sign</h3>
+            </div>
+            <div className="text-3xl mb-1">{astroProfile.sunSign.symbol}</div>
+            <div className="text-yellow-200 font-medium">{astroProfile.sunSign.name}</div>
+            <div className="text-yellow-300/70 text-sm">Your Core Self</div>
+          </div>
+          
+          {/* Moon Sign */}
+          <div className="bg-gradient-to-br from-blue-800/20 to-purple-800/20 rounded-lg p-4 border border-blue-300/20">
+            <div className="flex items-center justify-center space-x-2 mb-2">
+              <Moon className="w-5 h-5 text-blue-400" />
+              <h3 className="text-lg font-semibold text-blue-200">Moon Sign</h3>
+            </div>
+            <div className="text-3xl mb-1">{astroProfile.moonSign.symbol}</div>
+            <div className="text-blue-200 font-medium">{astroProfile.moonSign.name}</div>
+            <div className="text-blue-300/70 text-sm">Your Emotions</div>
+          </div>
+          
+          {/* Rising Sign */}
+          <div className="bg-gradient-to-br from-pink-800/20 to-purple-800/20 rounded-lg p-4 border border-pink-300/20">
+            <div className="flex items-center justify-center space-x-2 mb-2">
+              <Sunrise className="w-5 h-5 text-pink-400" />
+              <h3 className="text-lg font-semibold text-pink-200">Rising Sign</h3>
+            </div>
+            <div className="text-3xl mb-1">{astroProfile.risingSign.symbol}</div>
+            <div className="text-pink-200 font-medium">{astroProfile.risingSign.name}</div>
+            <div className="text-pink-300/70 text-sm">How Others See You</div>
           </div>
         </div>
+        
+        {/* Moon Phase */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="bg-gradient-to-r from-indigo-800/20 to-purple-800/20 rounded-lg p-4 border border-indigo-300/20"
+        >
+          <div className="flex items-center justify-center space-x-3 mb-2">
+            <span className="text-3xl">{astroProfile.moonPhase.emoji}</span>
+            <div>
+              <h3 className="text-lg font-semibold text-indigo-200">{astroProfile.moonPhase.name}</h3>
+              <p className="text-indigo-300/70 text-sm">{astroProfile.moonPhase.energy}</p>
+            </div>
+          </div>
+          <p className="text-indigo-200 text-sm text-center">{astroProfile.moonPhase.description}</p>
+        </motion.div>
       </motion.div>
 
       {/* Horoscope Content */}
@@ -82,7 +127,7 @@ const HoroscopeDisplay: React.FC<HoroscopeDisplayProps> = ({ sign, onBack }) => 
 
             {/* Horoscope Paragraphs */}
             <div className="space-y-6 text-pink-100 leading-relaxed">
-              {horoscope.content.map((paragraph, index) => (
+              {horoscope.content.map((paragraph: string, index: number) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
@@ -119,7 +164,7 @@ const HoroscopeDisplay: React.FC<HoroscopeDisplayProps> = ({ sign, onBack }) => 
             >
               <h4 className="text-center text-yellow-300 mb-3 font-semibold">🌟 Your Star Powers Today 🌟</h4>
               <div className="flex flex-wrap justify-center gap-3">
-                {horoscope.influences.map((influence, index) => (
+                {horoscope.influences.map((influence: string, index: number) => (
                   <span
                     key={index}
                     className="px-4 py-2 bg-pink-800/40 rounded-full text-sm text-pink-200 border border-pink-400/30 font-medium"

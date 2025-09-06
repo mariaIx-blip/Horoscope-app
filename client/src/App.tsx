@@ -2,23 +2,43 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ZodiacWheel from "./components/ZodiacWheel";
 import HoroscopeDisplay from "./components/HoroscopeDisplay";
+import BirthDetailsForm, { BirthDetails } from "./components/BirthDetailsForm";
 import CelestialBackground from "./components/CelestialBackground";
 import { ZodiacSign } from "./lib/zodiacData";
+import { AstrologicalProfile, calculateAstrologicalProfile } from "./lib/astroCalculations";
 import "./styles/astrology.css";
 import "@fontsource/inter";
 
+type AppView = 'wheel' | 'birthForm' | 'horoscope';
+
 function App() {
+  const [currentView, setCurrentView] = useState<AppView>('wheel');
   const [selectedSign, setSelectedSign] = useState<ZodiacSign | null>(null);
-  const [showHoroscope, setShowHoroscope] = useState(false);
+  const [birthDetails, setBirthDetails] = useState<BirthDetails | null>(null);
+  const [astroProfile, setAstroProfile] = useState<AstrologicalProfile | null>(null);
 
   const handleSignSelect = (sign: ZodiacSign) => {
     setSelectedSign(sign);
-    setShowHoroscope(true);
+    setCurrentView('birthForm');
   };
 
-  const handleBack = () => {
-    setShowHoroscope(false);
+  const handleBirthDetailsSubmit = (details: BirthDetails) => {
+    setBirthDetails(details);
+    const profile = calculateAstrologicalProfile(details.date, details.time, details.location);
+    setAstroProfile(profile);
+    setCurrentView('horoscope');
+  };
+
+  const handleBackToWheel = () => {
+    setCurrentView('wheel');
     setSelectedSign(null);
+    setBirthDetails(null);
+    setAstroProfile(null);
+  };
+
+  const handleBackToBirthForm = () => {
+    setCurrentView('birthForm');
+    setAstroProfile(null);
   };
 
   return (
@@ -29,7 +49,7 @@ function App() {
       {/* Main Content */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center p-4">
         <AnimatePresence mode="wait">
-          {!showHoroscope ? (
+          {currentView === 'wheel' && (
             <motion.div
               key="wheel"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -72,7 +92,25 @@ function App() {
                 </p>
               </motion.div>
             </motion.div>
-          ) : (
+          )}
+          
+          {currentView === 'birthForm' && (
+            <motion.div
+              key="birthForm"
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.6 }}
+              className="w-full max-w-4xl"
+            >
+              <BirthDetailsForm
+                onSubmit={handleBirthDetailsSubmit}
+                onBack={handleBackToWheel}
+              />
+            </motion.div>
+          )}
+          
+          {currentView === 'horoscope' && astroProfile && (
             <motion.div
               key="horoscope"
               initial={{ opacity: 0, x: 100 }}
@@ -82,8 +120,9 @@ function App() {
               className="w-full max-w-4xl"
             >
               <HoroscopeDisplay 
-                sign={selectedSign!} 
-                onBack={handleBack}
+                astroProfile={astroProfile}
+                birthDetails={birthDetails!}
+                onBack={handleBackToBirthForm}
               />
             </motion.div>
           )}

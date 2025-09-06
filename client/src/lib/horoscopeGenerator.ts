@@ -1,4 +1,5 @@
 import { ZodiacSign } from "./zodiacData";
+import { AstrologicalProfile, moonPhaseThemes } from "./astroCalculations";
 
 export interface Horoscope {
   title: string;
@@ -354,5 +355,54 @@ export function generateHoroscope(sign: ZodiacSign): Horoscope {
     content,
     mantra,
     influences: signInfluences
+  };
+}
+
+export function generatePersonalizedHoroscope(profile: AstrologicalProfile): Horoscope {
+  const today = new Date().toLocaleDateString('en-US', { 
+    weekday: 'long',
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+  
+  const title = `Your Personal Star Reading for ${today}`;
+  
+  // Combine influences from Sun, Moon, and Rising signs
+  const sunTheme = getRandomElement(emotionalThemes[profile.sunSign.name as keyof typeof emotionalThemes]);
+  const moonTheme = getRandomElement(relationshipThemes[profile.moonSign.name as keyof typeof relationshipThemes]);
+  const risingTheme = getRandomElement(careerThemes[profile.risingSign.name as keyof typeof careerThemes]);
+  const growthTheme = getRandomElement(growthThemes[profile.sunSign.name as keyof typeof growthThemes]);
+  
+  // Add moon phase influence
+  const moonPhaseTheme = moonPhaseThemes[profile.moonPhase.name as keyof typeof moonPhaseThemes];
+  
+  const content = [
+    `✨ **Your ${profile.sunSign.name} Sun Energy**: ${sunTheme}`,
+    `🌙 **Your ${profile.moonSign.name} Moon Feelings**: ${moonTheme}`,
+    `🌅 **Your ${profile.risingSign.name} Rising Power**: ${risingTheme}`,
+    `${profile.moonPhase.emoji} **${profile.moonPhase.name} Magic**: ${moonPhaseTheme.energy}`,
+    `💫 **Your Growth Journey**: ${growthTheme}`,
+    `🎯 **Moon Phase Action**: ${moonPhaseTheme.action}`
+  ];
+  
+  // Combine mantras from different signs
+  const sunMantra = getRandomElement(mantras[profile.sunSign.name as keyof typeof mantras]);
+  const moonMantra = getRandomElement(mantras[profile.moonSign.name as keyof typeof mantras]);
+  const combinedMantra = `${sunMantra} Your ${profile.moonSign.name} moon adds: ${moonMantra.toLowerCase()}`;
+  
+  // Combine influences
+  const allInfluences = [
+    ...influences[profile.sunSign.name as keyof typeof influences],
+    ...influences[profile.moonSign.name as keyof typeof influences].slice(0, 1),
+    ...influences[profile.risingSign.name as keyof typeof influences].slice(0, 1),
+    profile.moonPhase.energy
+  ];
+  
+  return {
+    title,
+    content,
+    mantra: combinedMantra,
+    influences: allInfluences
   };
 }
