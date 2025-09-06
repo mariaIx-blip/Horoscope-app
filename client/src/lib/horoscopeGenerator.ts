@@ -9,304 +9,304 @@ export interface Horoscope {
 
 const emotionalThemes = {
   "Aries": [
-    "The fire within your spirit burns with renewed intensity today, like a phoenix emerging from yesterday's ashes.",
-    "Your emotional landscape resembles a mountain stream—clear, powerful, and carving new paths through ancient stone.",
-    "The Moon whispers secrets of courage to your restless heart, urging you to trust the warrior spirit within."
+    "Today you feel as brave as a superhero! Your heart is full of exciting energy, like a bouncing ball that never stops moving.",
+    "You're feeling strong and ready for adventure today, like a knight on a magical quest to help your friends.",
+    "The moon is sending you special courage powers today, making you feel like you can do anything you set your mind to!"
   ],
   "Taurus": [
-    "Your emotions flow like honey through sunlit meadows, sweet and golden with the promise of stability.",
-    "The Moon's gentle influence cradles your heart like rich earth nurtures the deepest roots.",
-    "Today, your inner world blooms like a garden after spring rain—patient, nurturing, and beautifully grounded."
+    "You feel calm and happy today, like a cozy bear in a warm cave full of your favorite snacks and toys.",
+    "The moon is giving you extra patience today, like when you're building the most amazing tower with blocks.",
+    "Today your heart feels like a beautiful garden where all the flowers are blooming just for you!"
   ],
   "Gemini": [
-    "Your mind dances between thoughts like butterflies among summer flowers, each idea a burst of brilliant color.",
-    "The Moon illuminates the dual nature of your emotions—both the whisper and the storm within your heart.",
-    "Today, your feelings shift like morning mist, revealing new landscapes of understanding with each breath."
+    "Your brain is buzzing with fun ideas today, like a busy bee flying from flower to flower collecting sweet honey!",
+    "Today you might feel happy one minute and excited the next - that's okay! You're like a rainbow with lots of beautiful colors.",
+    "Your thoughts are dancing around like butterflies in a magical garden, bringing you lots of creative ideas!"
   ],
   "Cancer": [
-    "Your emotional tides ebb and flow with the Moon's ancient rhythm, carrying pearls of wisdom from the depths.",
-    "Like a lighthouse keeper tending to those you love, your heart shines steadily through any storm.",
-    "The lunar energy wraps around your soul like a silk shawl, warm and protective yet allowing you to shine."
+    "Today you're feeling extra caring, like a mama bear protecting her cubs or a superhero looking after everyone!",
+    "Your heart is like a lighthouse that helps everyone feel safe and loved, especially your family and friends.",
+    "The moon is wrapping you in a cozy blanket of love today, making you feel warm and special inside."
   ],
   "Leo": [
-    "Your heart radiates warmth like the golden hour sun, painting everything around you in shades of joy and hope.",
-    "The Moon acknowledges your royal nature, blessing your emotions with the grace of a benevolent ruler.",
-    "Today, your spirit soars like a majestic eagle, confident in the thermals of your own magnificent energy."
+    "Today you shine as bright as the sun! Everyone around you feels happy because of your amazing, cheerful energy.",
+    "You feel like a king or queen today, wearing an invisible crown that makes you feel confident and special.",
+    "Your spirit is soaring high like a beautiful eagle, and you feel proud of all the wonderful things you can do!"
   ],
   "Virgo": [
-    "Your emotions are like a master craftsperson's hands—precise, caring, and capable of creating beauty from chaos.",
-    "The Moon's light filters through your analytical mind like sunlight through crystal, revealing hidden truths.",
-    "Today, your heart tends to its garden with devotion, knowing that the smallest acts of love yield the richest harvest."
+    "Today you're like a helpful robot that fixes everything perfectly! You love making things neat and helping others.",
+    "The moon is helping you see things clearly, like when you clean your glasses and everything looks super sharp!",
+    "Your heart is like a magical garden where you plant seeds of kindness that grow into beautiful friendships."
   ],
   "Libra": [
-    "Your emotional world seeks harmony like a conductor bringing together a celestial symphony of feelings.",
-    "The Moon's reflection in still water mirrors your quest for balance between heart and mind.",
-    "Today, your spirit moves like a graceful dancer, finding beauty in the delicate equilibrium of opposing forces."
+    "Today you're like a peace-making superhero who helps everyone get along and feel happy together!",
+    "The moon is helping you balance everything perfectly, like when you ride a bike without wobbling.",
+    "You move through today like a graceful dancer, making everything around you feel beautiful and fair."
   ],
   "Scorpio": [
-    "Your emotions run as deep as underground rivers, carrying the transformative power of ancient mysteries.",
-    "The Moon reveals the phoenix within your psyche, ready to rise from the ashes of old patterns.",
-    "Today, your intuition pierces the veil like moonlight through fog, illuminating truths others cannot see."
+    "Today you're like a detective with super powers, able to figure out mysteries and understand things deeply!",
+    "The moon is helping you transform and grow, like a caterpillar becoming a beautiful butterfly.",
+    "Your special intuition is working extra strong today, like having magical powers that help you know things!"
   ],
   "Sagittarius": [
-    "Your heart gallops across emotional landscapes like a wild horse, free and untamed in its quest for truth.",
-    "The Moon lights your path like a campfire under star-scattered skies, warming your adventurous spirit.",
-    "Today, your optimism soars like an arrow shot toward distant horizons, carrying hopes and dreams on its flight."
+    "Today you feel like an explorer ready for the biggest adventure ever! Your heart is excited to discover new things.",
+    "The moon is lighting up your path like a magical flashlight, helping you find amazing new adventures!",
+    "Your happy thoughts are flying high like a superhero, bringing you lots of dreams and exciting possibilities!"
   ],
   "Capricorn": [
-    "Your emotions are like a mountain peak—steady, enduring, and reaching toward the heavens with quiet determination.",
-    "The Moon illuminates your path like starlight on snow, revealing the wisdom carved by time and experience.",
-    "Today, your heart builds bridges between dreams and reality, each feeling a carefully placed stone in your castle of ambition."
+    "Today you feel strong and steady like a mountain that can handle anything! You're really good at reaching your goals.",
+    "The moon is shining on your path like a magical star, showing you the smart way to do things.",
+    "Your heart is building amazing castles out of your dreams, one magical block at a time!"
   ],
   "Aquarius": [
-    "Your emotions flow like electricity through the collective consciousness, sparking innovation and understanding.",
-    "The Moon's unconventional light reveals your unique perspective, like aurora dancing across an arctic sky.",
-    "Today, your heart beats to the rhythm of tomorrow's dreams, conducting symphonies of progressive thought."
+    "Today you're buzzing with creative energy like a friendly robot full of amazing ideas to help everyone!",
+    "The moon is showing off your special uniqueness, like colorful northern lights dancing in the sky just for you!",
+    "Your heart is creating the most fantastic ideas for the future, like an inventor building tomorrow's coolest inventions!"
   ],
   "Pisces": [
-    "Your emotions swim in cosmic oceans, gathering stardust and moonbeams in the depths of your compassionate soul.",
-    "The Moon's reflection dissolves boundaries like watercolors bleeding into paper, blending reality with dreams.",
-    "Today, your intuitive heart flows like a sacred river, carrying messages from the divine realm to earthly shores."
+    "Today you're swimming in an ocean of imagination, collecting starlight and moon magic in your kind heart!",
+    "The moon is blending your dreams with reality like the most beautiful painting with all your favorite colors.",
+    "Your magical intuition is flowing like a gentle river, bringing you special messages and wonderful feelings!"
   ]
 };
 
 const relationshipThemes = {
   "Aries": [
-    "Venus ignites passion in your relationships like striking flint against steel, sparking connections that burn bright and true.",
-    "Your romantic energy radiates outward like the first bloom of spring, awakening hearts and inspiring new beginnings.",
-    "In love, you are the pioneer, courageously exploring uncharted territories of intimacy and connection."
+    "Today you're an amazing friend who makes everyone feel excited and happy, like the first day of summer vacation!",
+    "You bring lots of energy to your friendships, like a puppy who's always ready to play and have fun with everyone.",
+    "You're brave when making new friends, always ready to say hi and include others in your games and adventures!"
   ],
   "Taurus": [
-    "Venus, your ruling planet, wraps your relationships in silk and honey, creating bonds as enduring as ancient oak trees.",
-    "Your love grows slowly but surely, like roses that bloom year after year, more beautiful with each passing season.",
-    "In partnerships, you offer the gift of presence—steady, warm, and as reliable as the earth beneath our feet."
+    "You're the most loyal friend ever, like a faithful dog who never leaves your side and always makes you feel loved!",
+    "Your friendships grow stronger every day, like planting seeds that turn into the most beautiful flower garden.",
+    "Friends know they can always count on you, like having a cozy blanket that's always there when they need comfort."
   ],
   "Gemini": [
-    "Venus dances through your communication channels like quicksilver, bringing wit and charm to every interaction.",
-    "Your relationships thrive on the exchange of ideas, like two mirrors reflecting infinite possibilities between them.",
-    "In love, you are the storyteller, weaving tales that bind hearts together with threads of laughter and understanding."
+    "You're the friend who always has the funniest jokes and the most interesting stories to share with everyone!",
+    "You love talking and sharing ideas with friends, like having the best show-and-tell every single day.",
+    "You're amazing at making friends laugh and feel special with all your creative stories and fun conversations!"
   ],
   "Cancer": [
-    "Venus flows through your emotional depths like moonlight on water, illuminating the sacred spaces of your heart.",
-    "Your nurturing spirit creates a sanctuary where love can grow, protected and cherished like a pearl within its shell.",
-    "In relationships, you are the guardian of memories, keeping the treasures of shared moments safe in your caring embrace."
+    "You're the caring friend who always makes sure everyone feels included and loved, like a gentle hug in human form!",
+    "You create the safest, most comfortable friendships where everyone can be themselves and feel protected.",
+    "You remember all the special moments with friends, like keeping a treasure box full of happy memories!"
   ],
   "Leo": [
-    "Venus crowns your romantic nature with golden light, making every gesture of love a performance worthy of applause.",
-    "Your heart gives generously, like the sun sharing its warmth with every living thing beneath its radiant gaze.",
-    "In love, you are both the artist and the masterpiece, creating relationships that shine with dramatic beauty."
+    "You're the friend who makes everyone feel like stars! You love giving compliments and making others feel super special.",
+    "Your heart is so generous, like the sun that gives warmth and happiness to everyone around you.",
+    "You create the most fun friendships that shine bright like a rainbow after a storm!"
   ],
   "Virgo": [
-    "Venus works through your hands and heart like a master gardener, tending to relationships with devoted attention.",
-    "Your love manifests in a thousand small acts of service, each one a stitch in the tapestry of deep connection.",
-    "In partnerships, you are the healer, offering the medicine of practical care and unwavering loyalty."
+    "You're the friend who always helps others and remembers exactly what makes each person happy!",
+    "You show you care by doing lots of little helpful things, like a fairy godparent spreading kindness everywhere.",
+    "Friends love you because you're always there to help fix problems and make everything better!"
   ],
   "Libra": [
-    "Venus, your celestial patron, blesses your relationships with the harmony of perfectly balanced scales.",
-    "Your love seeks beauty and balance, creating partnerships that reflect the divine architecture of the cosmos.",
-    "In romance, you are the diplomat, skilled at weaving together different hearts into a symphony of understanding."
+    "You're the peacemaker friend who helps everyone get along and makes sure no one feels left out!",
+    "You love creating beautiful, fair friendships where everyone feels equal and valued.",
+    "You're amazing at helping friends solve problems and understand each other, like a friendship superhero!"
   ],
   "Scorpio": [
-    "Venus transforms in your passionate depths like coal becoming diamond under intense pressure and heat.",
-    "Your love burns with the intensity of a thousand stars, capable of illuminating or consuming with equal power.",
-    "In relationships, you are the alchemist, transforming ordinary connections into extraordinary bonds of soul-deep intimacy."
+    "You're the friend who creates the deepest, most loyal friendships that last forever and ever!",
+    "Your friendship burns bright like the most amazing fireworks, full of excitement and wonder.",
+    "You turn regular friendships into magical connections where you understand each other perfectly!"
   ],
   "Sagittarius": [
-    "Venus gallops alongside your free spirit like a wild mare across infinite plains of possibility and adventure.",
-    "Your love seeks horizons beyond the ordinary, finding freedom in the shared exploration of life's grand mysteries.",
-    "In partnerships, you are the philosopher, questioning and expanding the very definition of what love can become."
+    "You're the adventurous friend who always suggests the coolest games and most exciting explorations!",
+    "Your friendships are like amazing adventures where you discover new things and have the best times together.",
+    "You love asking big questions with friends and dreaming up the most fantastic possibilities together!"
   ],
   "Capricorn": [
-    "Venus builds foundations in your relationships like an architect designing structures to withstand the test of time.",
-    "Your love matures like fine wine, growing richer and more complex with each passing year of shared experience.",
-    "In romance, you are the mountain guide, leading partnerships to heights that others can only dream of reaching."
+    "You build the strongest friendships ever, like constructing the most amazing fort that will last forever!",
+    "Your friendships get better and better over time, like collecting the most precious treasures year after year.",
+    "You help your friends reach their biggest dreams, like a guide helping them climb the highest mountains!"
   ],
   "Aquarius": [
-    "Venus flows through your unique perspective like lightning through crystal, electrifying connections with innovative energy.",
-    "Your love transcends conventional boundaries, creating relationships that serve as beacons for humanity's evolution.",
-    "In partnerships, you are the visionary, seeing possibilities that exist beyond the current limitations of the heart."
+    "You create the most unique and special friendships that are unlike anyone else's - totally original and amazing!",
+    "Your friendships help make the world a better place by bringing people together in new and wonderful ways.",
+    "You see the most fantastic possibilities for friendship that other people haven't even thought of yet!"
   ],
   "Pisces": [
-    "Venus dissolves all barriers in your compassionate embrace, like salt melting into the vast ocean of universal love.",
-    "Your romantic nature flows like a sacred river, carrying dreams and healing to every shore it touches.",
-    "In love, you are the mystic, understanding that true connection exists beyond words in the realm of soul recognition."
+    "You're the most caring friend who can feel what others are feeling and always knows just how to help!",
+    "Your friendship flows like a gentle river, bringing comfort and healing dreams to everyone you meet.",
+    "You understand your friends in magical ways, even without words, like you can read their hearts!"
   ]
 };
 
 const careerThemes = {
   "Aries": [
-    "Mars energizes your professional sphere like dawn breaking over a battlefield, bringing clarity and courage to every challenge.",
-    "Your career path blazes forward like a comet streaking across the corporate sky, leaving trails of innovation and bold achievement.",
-    "In work, you are the pioneer, cutting through obstacles with the determination of one who knows their destiny."
+    "At school today, you're like a superhero student ready to tackle any challenge with courage and excitement!",
+    "You're blazing through your activities and homework like a shooting star, doing amazing things everywhere you go.",
+    "You're the brave leader in group projects, always ready to try new things and help your team succeed!"
   ],
   "Taurus": [
-    "Saturn grounds your ambitions like deep roots anchoring a mighty tree, ensuring your success grows steadily and endures.",
-    "Your professional approach mirrors the patient craftsperson, building your career one careful, deliberate stroke at a time.",
-    "In the workplace, you are the foundation stone, providing stability and reliability that others can build upon."
+    "At school, you're like a steady, strong tree that grows a little bit better every single day through hard work!",
+    "You're patient and careful with your work, like an artist creating a masterpiece one beautiful stroke at a time.",
+    "Your classmates can always count on you to be reliable and help keep everyone organized and on track!"
   ],
   "Gemini": [
-    "Mercury quickens your professional communication like wind carrying seeds across fertile fields of opportunity.",
-    "Your career thrives on variety and connection, like a skilled weaver creating intricate patterns from diverse threads.",
-    "In work, you are the messenger, bridging gaps between ideas and turning conversations into collaborations."
+    "At school, you're amazing at explaining things to classmates and sharing ideas like seeds of knowledge everywhere!",
+    "You love trying different subjects and activities, like a colorful butterfly visiting all the most interesting flowers.",
+    "You're the best at helping classmates understand each other and work together on cool projects!"
   ],
   "Cancer": [
-    "Saturn nurtures your professional growth like moonlight feeding the tides, bringing intuitive wisdom to strategic decisions.",
-    "Your career blossoms when you honor your protective instincts, creating environments where others can flourish and grow.",
-    "In the workplace, you are the guardian of culture, ensuring that human values remain at the heart of all endeavors."
+    "At school, the moon helps you make smart decisions and understand things with your special intuition!",
+    "You create the kindest classroom environment where everyone feels safe, happy, and ready to learn together.",
+    "You're like the guardian of friendship, making sure everyone is included and that kindness comes first!"
   ],
   "Leo": [
-    "The Sun illuminates your professional stage like a spotlight on opening night, revealing your natural leadership abilities.",
-    "Your career radiates with creative fire, inspiring others and bringing warmth to even the coldest corporate corridors.",
-    "In work, you are the director, orchestrating projects with the flair of one born to command respect and admiration."
+    "At school, you shine like a star on stage! Everyone notices your natural leadership and creative talents.",
+    "Your creative energy lights up every classroom and activity, inspiring your friends and teachers too!",
+    "You're like a director of fun, organizing projects and activities that everyone wants to be part of!"
   ],
   "Virgo": [
-    "Mercury sharpens your professional focus like a master jeweler cutting precious stones to reveal their hidden brilliance.",
-    "Your career benefits from your attention to detail, like a perfect mechanism where every small part serves the greater purpose.",
-    "In the workplace, you are the craftsperson, transforming raw potential into polished excellence through dedicated effort."
+    "At school, you have the sharpest focus, like a detective finding all the important details others might miss!",
+    "You're amazing at paying attention to the little things that make big projects work perfectly together.",
+    "You're like a master builder who turns rough ideas into polished, perfect finished work through careful attention!"
   ],
   "Libra": [
-    "Venus brings harmony to your professional relationships like a conductor uniting diverse instruments into beautiful music.",
-    "Your career flourishes in partnerships and collaboration, like a garden where different plants grow stronger together.",
-    "In work, you are the diplomat, finding elegant solutions that satisfy all parties and create lasting professional bonds."
+    "At school, you bring harmony to group work like a conductor making beautiful music with different instruments!",
+    "You love working with others and make everything better through teamwork, like flowers growing stronger together.",
+    "You're the peacemaker who finds fair solutions that make everyone happy and excited to work together!"
   ],
   "Scorpio": [
-    "Pluto transforms your professional landscape like volcanic activity creating new islands of opportunity from the depths.",
-    "Your career benefits from your ability to see beneath surfaces, like a deep-sea explorer discovering hidden treasures.",
-    "In the workplace, you are the investigator, uncovering truths and solutions that others might never think to seek."
+    "At school, you transform challenges into opportunities like a magician creating something amazing from nothing!",
+    "You see things others can't, like a treasure hunter discovering hidden gems beneath the surface.",
+    "You're like a detective who solves mysteries and finds answers that help everyone understand better!"
   ],
   "Sagittarius": [
-    "Jupiter expands your professional horizons like a telescope revealing distant galaxies of untapped potential.",
-    "Your career thrives on exploration and learning, like a ship sailing toward territories marked only as 'Here be dragons.'",
-    "In work, you are the adventurer, bringing enthusiasm and philosophical insight to every professional expedition."
+    "At school, you're expanding your horizons like an astronaut discovering new planets full of amazing possibilities!",
+    "You love exploring and learning new things, like a brave captain sailing to discover magical new lands.",
+    "You're the adventurer who brings excitement and big questions to every subject and activity!"
   ],
   "Capricorn": [
-    "Saturn rewards your professional discipline like time itself, slowly but surely elevating you to positions of lasting authority.",
-    "Your career climbs steadily upward like a master mountaineer, each achievement a carefully planned step toward the summit.",
-    "In the workplace, you are the architect, designing structures of success that will stand long after others have crumbled."
+    "At school, your hard work is rewarded like climbing a mountain - each step gets you higher toward your goals!",
+    "You climb toward success steadily like a skilled mountain climber, carefully planning each step to the top.",
+    "You're like an architect building your future, creating structures of learning that will last forever!"
   ],
   "Aquarius": [
-    "Uranus electrifies your professional sphere like lightning illuminating new pathways through the landscape of innovation.",
-    "Your career benefits from your unique perspective, like a scientist discovering new elements that change everything.",
-    "In work, you are the inventor, creating solutions and systems that serve not just today's needs but tomorrow's possibilities."
+    "At school, your unique ideas light up like lightning, showing everyone new and exciting ways to do things!",
+    "You see things differently, like a scientist discovering amazing new things that help everyone understand better.",
+    "You're the inventor creating solutions that help not just today, but make the future even more awesome!"
   ],
   "Pisces": [
-    "Neptune inspires your professional creativity like morning mist carrying dreams into the realm of practical manifestation.",
-    "Your career flows best when aligned with your deeper purpose, like a river that finds the most natural path to the sea.",
-    "In the workplace, you are the healer, bringing compassion and intuitive wisdom to every professional interaction."
+    "At school, your creativity flows like magical morning mist that turns dreams into real, amazing projects!",
+    "You do your best work when following your heart, like a gentle river flowing naturally toward the ocean.",
+    "You're the healer of feelings, bringing kindness and understanding to every classroom and activity!"
   ]
 };
 
 const growthThemes = {
   "Aries": [
-    "Pluto ignites transformation in your soul like a phoenix preparing for rebirth, burning away what no longer serves your highest self. Your spiritual journey requires the courage to face your shadows and emerge victorious, carrying the wisdom earned through battle with your own limitations."
+    "Today you're growing stronger inside, like a superhero learning new powers! You're becoming braver and wiser by facing challenges and learning from them. Remember, every challenge makes you more awesome!"
   ],
   "Taurus": [
-    "Neptune dissolves the boundaries of your material focus, like spring rain awakening seeds that have waited patiently in dark earth. Your spiritual growth comes through learning to flow with change while maintaining your essential stability, like a tree that bends with the wind but never breaks."
+    "You're growing like a beautiful garden, learning to be flexible and try new things while staying true to yourself. Like a strong tree that can dance in the wind but never falls down, you're learning to bend without breaking!"
   ],
   "Gemini": [
-    "Pluto transforms your mental landscape like a master librarian reorganizing the cosmos, helping you distinguish between knowledge and wisdom. Your spiritual path involves learning to quiet the constant chatter of thoughts and listen instead to the deeper voice of intuitive understanding."
+    "Your amazing brain is like a library getting reorganized with all the coolest books! You're learning the difference between just knowing facts and really understanding things. Sometimes it's good to quiet your busy thoughts and listen to your heart's wisdom too!"
   ],
   "Cancer": [
-    "Neptune blesses your emotional depths with mystical understanding, like moonbeams penetrating the surface of a sacred lake. Your spiritual growth comes through honoring your sensitivity as a superpower, learning to protect your energy while remaining open to the flow of universal love."
+    "Your feelings are like a magical lake touched by moonlight, full of special understanding and wisdom! Your sensitivity is actually a superpower that helps you understand others. You're learning to protect your energy while still sharing your love with the world!"
   ],
   "Leo": [
-    "Pluto reshapes your ego like a master sculptor revealing the divine artwork hidden within the marble of personality. Your spiritual journey involves learning that true leadership serves others, and that the brightest light shines when it illuminates the path for fellow travelers."
+    "You're like a beautiful sculpture being carved by a master artist, revealing the amazing leader inside you! You're learning that the best leaders help others shine too. Your light is brightest when you help your friends see how awesome they are!"
   ],
   "Virgo": [
-    "Neptune softens your critical edges like morning dew gentling the harsh lines of night shadows. Your spiritual growth comes through accepting imperfection as part of the divine plan, understanding that flaws are simply unfinished masterpieces waiting for love's completion."
+    "You're learning to be gentler with yourself and others, like morning dew softening sharp edges. It's okay if things aren't perfect - sometimes the most beautiful things are the ones that are still growing and learning, just like you!"
   ],
   "Libra": [
-    "Pluto disrupts your need for external harmony, like an earthquake that reshapes the landscape to reveal new possibilities. Your spiritual path involves finding balance within yourself first, becoming the peace you seek to create in the world around you."
+    "Sometimes things get shaken up to show you new possibilities, like rearranging your room to make it even better! You're learning to find balance and peace inside yourself first, then you can share that peace with everyone around you!"
   ],
   "Scorpio": [
-    "Neptune adds compassion to your transformative powers like light softening the edges of deep shadows. Your spiritual growth comes through learning that true power lies in vulnerability, and that the greatest mysteries are revealed to those who approach with an open heart."
+    "Your powerful abilities are being touched by gentle compassion, like soft light making shadows less scary. You're learning that being open and vulnerable actually makes you stronger, and the biggest mysteries reveal themselves to those with open hearts!"
   ],
   "Sagittarius": [
-    "Pluto challenges your philosophical foundations like a wise teacher who questions everything to reveal deeper truths. Your spiritual journey involves discovering that the greatest adventures happen within, and that wisdom comes not from knowing all the answers but from asking better questions."
+    "Like a wise teacher asking amazing questions, you're discovering deeper truths about yourself and the world! The biggest adventures happen inside your heart and mind. Real wisdom comes from asking great questions, not just knowing all the answers!"
   ],
   "Capricorn": [
-    "Neptune dissolves your rigid structures like gentle water reshaping ancient stone over centuries of patient persistence. Your spiritual growth comes through learning that some things cannot be built or earned—they can only be received through surrender to grace."
+    "Like gentle water slowly reshaping stone, you're learning to be more flexible and flowing. Some of the most beautiful things in life can't be built or earned - they're gifts that come when you open your heart to receive them!"
   ],
   "Aquarius": [
-    "Pluto transforms your humanitarian ideals like lightning reshaping the very air it passes through. Your spiritual path involves learning that true revolution begins within, and that the world changes most profoundly when we embody the future we wish to create."
+    "Your ideas about helping others are transforming like lightning that changes everything it touches! Real change starts inside you first. The world becomes better when you become the amazing future you dream about!"
   ],
   "Pisces": [
-    "Pluto grounds your mystical nature like an anchor helping a ship navigate between the spiritual and material realms. Your spiritual growth comes through learning to translate cosmic downloads into earthly action, becoming a bridge between heaven and earth."
+    "Your magical, dreamy nature is getting grounded like an anchor helping a ship stay steady in any weather. You're learning to take your beautiful dreams and make them real in the world, like building a bridge between your imagination and reality!"
   ]
 };
 
 const mantras = {
   "Aries": [
-    "I am the fire that lights the way forward",
-    "Courage flows through my veins like liquid starlight",
-    "I embrace challenges as opportunities for growth",
-    "My warrior spirit serves the highest good"
+    "I am brave and strong like a superhero!",
+    "I have courage that shines like the brightest stars",
+    "Every challenge helps me grow bigger and stronger",
+    "I use my brave heart to help others"
   ],
   "Taurus": [
-    "I am grounded in love and rooted in abundance",
-    "Patience reveals the perfect timing of all things",
-    "I trust the steady rhythm of my heart's wisdom",
-    "Beauty surrounds me and flows through me"
+    "I am loved and have everything I need",
+    "Good things come to those who wait patiently",
+    "I listen to my heart because it knows what's right",
+    "I see and create beauty everywhere I go"
   ],
   "Gemini": [
-    "I communicate with clarity and cosmic connection",
-    "My mind is a bridge between earth and sky",
-    "Curiosity opens doorways to infinite possibilities",
-    "I speak my truth with winged words"
+    "I speak clearly and connect with everyone",
+    "My mind is like a magical bridge full of ideas",
+    "Being curious opens doors to amazing possibilities",
+    "I share my truth with words that fly like butterflies"
   ],
   "Cancer": [
-    "I am safe in the embrace of cosmic love",
-    "My intuition is a compass pointing toward home",
-    "I nurture others and allow myself to be nurtured",
-    "The moon's wisdom flows through my gentle heart"
+    "I am safe and loved by the whole universe",
+    "My feelings help guide me like a magical compass",
+    "I take care of others and let them take care of me",
+    "The moon's love flows through my caring heart"
   ],
   "Leo": [
-    "I shine my light for the benefit of all beings",
-    "My heart is a sun that never sets",
-    "I lead with love and inspire through joy",
-    "Confidence is my crown, worn with grace"
+    "I shine my light to help everyone feel happy",
+    "My heart is like the sun that always shines",
+    "I lead with love and make others smile",
+    "I wear my confidence like a beautiful crown"
   ],
   "Virgo": [
-    "I serve the world through perfect imperfection",
-    "My careful attention creates miracles in details",
-    "I am the healing hands of divine love",
-    "Order and chaos dance together in my wisdom"
+    "I help the world by doing my best, even if it's not perfect",
+    "I notice small details that create big magic",
+    "My hands heal and help with lots of love",
+    "I can organize chaos and make everything better"
   ],
   "Libra": [
-    "I am the harmony that brings all things into balance",
-    "Beauty flows through me like sacred music",
-    "I create peace wherever my presence is felt",
-    "Justice and mercy unite in my understanding heart"
+    "I bring harmony and balance to everything around me",
+    "Beauty flows through me like the most wonderful music",
+    "I create peace wherever I go",
+    "I understand fairness and kindness go hand in hand"
   ],
   "Scorpio": [
-    "I transform darkness into light through fearless love",
-    "My depths contain oceans of hidden treasures",
-    "I trust the cycles of death and rebirth",
-    "Truth reveals itself to my penetrating vision"
+    "I turn scary things into beautiful things with brave love",
+    "My heart contains oceans full of hidden treasures",
+    "I trust that endings lead to new beginnings",
+    "I can see the truth that others might miss"
   ],
   "Sagittarius": [
-    "I am an arrow of truth shot from the bow of wisdom",
-    "Adventure calls and I answer with an open heart",
-    "My spirit soars beyond all limitations",
-    "Freedom is my birthright, wisdom my compass"
+    "I am like an arrow flying toward truth and wisdom",
+    "Adventure calls and I answer with excitement",
+    "My spirit can soar higher than any mountain",
+    "I am free to explore with wisdom as my guide"
   ],
   "Capricorn": [
-    "I climb mountains of possibility with steady determination",
-    "Time is my ally in building lasting legacy",
-    "I am the bridge between dreams and achievement",
-    "Authority flows through me in service to others"
+    "I climb mountains of possibility step by step",
+    "Time helps me build amazing things that last",
+    "I turn my dreams into real achievements",
+    "I lead others with kindness and responsibility"
   ],
   "Aquarius": [
-    "I am a vessel for the future's highest possibilities",
-    "Innovation flows through me like electricity through water",
-    "My uniqueness serves the collective good",
-    "I am the change I wish to see in the world"
+    "I help create the amazing future I dream about",
+    "Creative ideas flow through me like magical electricity",
+    "My uniqueness helps make the world better",
+    "I become the positive changes I want to see"
   ],
   "Pisces": [
-    "I swim in oceans of infinite compassion",
-    "My dreams are doorways to divine reality",
-    "I trust the flow of cosmic currents",
-    "Love dissolves all boundaries in my understanding"
+    "I swim in oceans of endless love and kindness",
+    "My dreams are doorways to magical possibilities",
+    "I trust the flow of life's magical currents",
+    "Love helps me understand and connect with everyone"
   ]
 };
 
