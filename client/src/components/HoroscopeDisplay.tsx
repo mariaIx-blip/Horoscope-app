@@ -90,22 +90,56 @@ const HoroscopeDisplay: React.FC<HoroscopeDisplayProps> = ({ astroProfile, birth
           </div>
         </div>
         
-        {/* Moon Phase */}
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="bg-gradient-to-r from-indigo-800/20 to-purple-800/20 rounded-lg p-4 border border-indigo-300/20"
-        >
-          <div className="flex items-center justify-center space-x-3 mb-2">
-            <span className="text-3xl">{astroProfile.moonPhase.emoji}</span>
-            <div>
-              <h3 className="text-lg font-semibold text-indigo-200">{astroProfile.moonPhase.name}</h3>
-              <p className="text-indigo-300/70 text-sm">{astroProfile.moonPhase.energy}</p>
+        {/* Your Personal Tarot Card */}
+        {horoscope.tarotCard && (
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="bg-gradient-to-br from-purple-800/20 to-pink-800/20 rounded-lg p-6 border border-purple-300/20"
+          >
+            <div className="text-center mb-4">
+              <h3 className="text-xl font-semibold text-purple-200 mb-3">🔮 Your Personal Tarot Card 🔮</h3>
+              
+              {/* Tarot Card Image */}
+              <div className="mb-4 flex justify-center">
+                <div className="relative w-32 h-48 bg-gradient-to-b from-purple-900 to-indigo-900 rounded-lg border-2 border-yellow-400 shadow-2xl overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-b from-purple-800/50 to-transparent"></div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-3">
+                    <div className="text-yellow-300 text-lg font-bold mb-2">{horoscope.tarotCard.name}</div>
+                    <div className="text-purple-200 text-xs space-y-1">
+                      {horoscope.tarotCard.keywords.slice(0, 3).map((keyword, index) => (
+                        <div key={index} className="px-2 py-1 bg-purple-900/60 rounded text-xs">{keyword}</div>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Card border decoration */}
+                  <div className="absolute inset-1 border border-yellow-400/30 rounded"></div>
+                </div>
+              </div>
+              
+              {/* Card Name and Keywords */}
+              <div className="text-2xl font-bold text-yellow-300 mb-2">{horoscope.tarotCard.name}</div>
+              <div className="flex justify-center flex-wrap gap-2 mb-3">
+                {horoscope.tarotCard.keywords.map((keyword, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 bg-purple-800/40 rounded-full text-sm text-purple-200 border border-purple-400/30"
+                  >
+                    {keyword}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-          <p className="text-indigo-200 text-sm text-center">{astroProfile.moonPhase.description}</p>
-        </motion.div>
+            
+            {/* Card Description */}
+            <div className="space-y-3 text-purple-100">
+              <div className="p-3 bg-purple-800/20 rounded-lg">
+                <p className="text-sm leading-relaxed text-center">{horoscope.tarotCard.meaningUpright}</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
       </motion.div>
 
       {/* Horoscope Content */}
@@ -175,44 +209,22 @@ const HoroscopeDisplay: React.FC<HoroscopeDisplayProps> = ({ astroProfile, birth
               </div>
             </motion.div>
 
-            {/* Tarot Card Section */}
+            {/* Detailed Tarot Guidance */}
             {horoscope.tarotCard && (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.8, duration: 0.8 }}
-                className="mt-8 p-6 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-lg border border-purple-300/20"
+                className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6"
               >
-                <div className="text-center mb-4">
-                  <h3 className="text-xl font-semibold text-purple-200 mb-2">🔮 Your Tarot Card for Today 🔮</h3>
-                  <div className="text-3xl mb-2">{horoscope.tarotCard.name}</div>
-                  <div className="flex justify-center space-x-2 mb-4">
-                    {horoscope.tarotCard.keywords.map((keyword, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-purple-800/40 rounded-full text-sm text-purple-200 border border-purple-400/30"
-                      >
-                        {keyword}
-                      </span>
-                    ))}
-                  </div>
+                <div className="p-6 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-300/20">
+                  <h4 className="font-semibold text-purple-200 mb-3 text-center">🌟 Emotional Guidance</h4>
+                  <p className="text-sm leading-relaxed text-purple-100">{horoscope.tarotCard.emotionalGuidance}</p>
                 </div>
                 
-                <div className="space-y-4 text-purple-100">
-                  <div className="p-4 bg-purple-800/20 rounded-lg">
-                    <h4 className="font-semibold text-purple-200 mb-2">💜 Card Meaning:</h4>
-                    <p className="text-sm leading-relaxed">{horoscope.tarotCard.meaningUpright}</p>
-                  </div>
-                  
-                  <div className="p-4 bg-purple-800/20 rounded-lg">
-                    <h4 className="font-semibold text-purple-200 mb-2">🌟 Emotional Guidance:</h4>
-                    <p className="text-sm leading-relaxed">{horoscope.tarotCard.emotionalGuidance}</p>
-                  </div>
-                  
-                  <div className="p-4 bg-purple-800/20 rounded-lg">
-                    <h4 className="font-semibold text-purple-200 mb-2">💪 Mental Encouragement:</h4>
-                    <p className="text-sm leading-relaxed">{horoscope.tarotCard.mentalEncouragement}</p>
-                  </div>
+                <div className="p-6 bg-gradient-to-br from-pink-900/30 to-purple-900/30 rounded-lg border border-pink-300/20">
+                  <h4 className="font-semibold text-pink-200 mb-3 text-center">💪 Mental Encouragement</h4>
+                  <p className="text-sm leading-relaxed text-pink-100">{horoscope.tarotCard.mentalEncouragement}</p>
                 </div>
               </motion.div>
             )}
