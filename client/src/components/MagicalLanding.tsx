@@ -250,16 +250,25 @@ const MagicalLanding: React.FC<MagicalLandingProps> = ({ onStartMagic }) => {
           transition={{ delay: 2.5, duration: 1 }}
           className="text-center"
         >
-          <p 
-            className="text-xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 font-semibold"
+          <motion.p 
+            className="text-lg text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 font-medium"
+            animate={{
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
             style={{
-              fontFamily: "'Brush Script MT', cursive, sans-serif",
-              textShadow: "0 0 20px rgba(251, 191, 36, 0.3)",
-              filter: "drop-shadow(0 0 10px rgba(236, 72, 153, 0.3))"
+              fontFamily: "'Dancing Script', cursive, sans-serif",
+              backgroundSize: "200% 200%",
+              textShadow: "0 0 15px rgba(251, 191, 36, 0.4)",
+              filter: "drop-shadow(0 0 8px rgba(236, 72, 153, 0.4))"
             }}
           >
             Created by Souhail & Maria
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Floating Magic Particles */}
