@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import MagicalLanding from "./components/MagicalLanding";
 import HoroscopeDisplay from "./components/HoroscopeDisplay";
 import BirthDetailsForm, { BirthDetails } from "./components/BirthDetailsForm";
-import BackgroundMusic from "./components/BackgroundMusic";
 import { ZodiacSign } from "./lib/zodiacData";
 import { AstrologicalProfile, calculateAstrologicalProfile } from "./lib/astroCalculations";
 import "./styles/astrology.css";
@@ -40,7 +39,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-purple-950 to-slate-900 relative overflow-hidden">
-      <BackgroundMusic />
       <AnimatePresence mode="wait">
         {currentView === 'landing' && (
           <motion.div

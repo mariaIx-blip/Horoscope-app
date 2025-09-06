@@ -310,10 +310,18 @@ const MagicalLanding: React.FC<MagicalLandingProps> = ({ onStartMagic }) => {
           </motion.h1>
           
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 1 }}
-            className="text-2xl md:text-3xl text-pink-200 font-light mb-8"
+            className="text-3xl md:text-4xl font-semibold mb-8"
+            style={{
+              background: "linear-gradient(45deg, #fbbf24, #f59e0b, #fbbf24)",
+              backgroundSize: "200% 200%",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              textShadow: "0 0 20px rgba(251, 191, 36, 0.5)",
+              filter: "drop-shadow(0 0 10px rgba(245, 158, 11, 0.7))"
+            }}
           >
             Discover the magic written in the stars just for you!
           </motion.p>
