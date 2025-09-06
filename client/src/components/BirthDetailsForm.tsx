@@ -168,7 +168,7 @@ const BirthDetailsForm: React.FC<BirthDetailsFormProps> = ({ onSubmit, onBack })
                   variant="outline"
                   className="bg-purple-900/50 border-purple-300/30 text-purple-200 hover:bg-purple-800/50"
                 >
-                  ← Back to Star Signs
+                  ← Back to Magic
                 </Button>
                 
                 <Button
