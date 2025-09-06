@@ -43,11 +43,11 @@ const ZodiacWheel: React.FC<ZodiacWheelProps> = ({ onSignSelect }) => {
             <motion.button
               key={sign.name}
               className="absolute w-20 h-20 md:w-24 md:h-24 transform -translate-x-1/2 -translate-y-1/2 
-                         bg-gradient-to-br from-purple-900/80 to-indigo-900/80 
-                         rounded-full border-2 border-purple-300/30 
+                         bg-gradient-to-br from-pink-900/80 to-blue-900/80 
+                         rounded-full border-2 border-pink-300/30 
                          flex flex-col items-center justify-center
-                         hover:border-yellow-300/60 hover:shadow-lg hover:shadow-purple-500/20
-                         transition-all duration-300 group"
+                         hover:border-yellow-300/60 hover:shadow-lg hover:shadow-pink-500/20
+                         transition-all duration-300 group hover:scale-110"
               style={{
                 left: `${50 + x}%`,
                 top: `${50 + y}%`,

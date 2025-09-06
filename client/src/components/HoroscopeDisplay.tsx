@@ -33,10 +33,10 @@ const HoroscopeDisplay: React.FC<HoroscopeDisplayProps> = ({ sign, onBack }) => 
           onClick={onBack}
           variant="outline"
           size="lg"
-          className="bg-purple-900/50 border-purple-300/30 text-purple-200 hover:bg-purple-800/50"
+          className="bg-pink-900/50 border-pink-300/30 text-pink-200 hover:bg-pink-800/50"
         >
           <ArrowLeft className="w-5 h-5 mr-2" />
-          Back to Signs
+          ← Back to Star Friends
         </Button>
         
         <div className="flex items-center space-x-2 text-purple-200">
@@ -69,28 +69,29 @@ const HoroscopeDisplay: React.FC<HoroscopeDisplayProps> = ({ sign, onBack }) => 
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.6 }}
       >
-        <Card className="bg-gradient-to-br from-purple-900/30 to-indigo-900/30 border-purple-300/20 backdrop-blur-sm">
+        <Card className="bg-gradient-to-br from-pink-900/30 to-blue-900/30 border-pink-300/20 backdrop-blur-sm">
           <CardContent className="p-8">
             {/* Title */}
-            <div className="flex items-center space-x-3 mb-6">
-              <Star className="w-6 h-6 text-yellow-400" />
-              <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-purple-300">
-                {horoscope.title}
+            <div className="flex items-center justify-center space-x-3 mb-6">
+              <Star className="w-8 h-8 text-yellow-400 animate-pulse" />
+              <h2 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-pink-300 text-center">
+                Your Magical Daily Message!
               </h2>
+              <Star className="w-8 h-8 text-yellow-400 animate-pulse" />
             </div>
 
             {/* Horoscope Paragraphs */}
-            <div className="space-y-6 text-purple-100 leading-relaxed">
+            <div className="space-y-6 text-pink-100 leading-relaxed">
               {horoscope.content.map((paragraph, index) => (
-                <motion.p
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 + (index * 0.2), duration: 0.5 }}
-                  className="text-lg"
+                  className="text-lg p-4 bg-gradient-to-r from-purple-800/20 to-pink-800/20 rounded-lg border border-pink-300/10"
                 >
                   {paragraph}
-                </motion.p>
+                </motion.div>
               ))}
             </div>
 
@@ -99,11 +100,11 @@ const HoroscopeDisplay: React.FC<HoroscopeDisplayProps> = ({ sign, onBack }) => 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.4, duration: 0.6 }}
-              className="mt-8 p-6 bg-gradient-to-r from-purple-800/30 to-indigo-800/30 rounded-lg border border-purple-300/20"
+              className="mt-8 p-6 bg-gradient-to-r from-pink-800/30 to-blue-800/30 rounded-lg border border-pink-300/20"
             >
               <div className="text-center">
-                <h3 className="text-lg font-semibold text-yellow-300 mb-3">Daily Mantra</h3>
-                <p className="text-xl italic text-purple-100 font-medium">
+                <h3 className="text-xl font-semibold text-yellow-300 mb-3">✨ Your Special Words for Today ✨</h3>
+                <p className="text-xl italic text-pink-100 font-medium">
                   "{horoscope.mantra}"
                 </p>
               </div>
@@ -114,16 +115,31 @@ const HoroscopeDisplay: React.FC<HoroscopeDisplayProps> = ({ sign, onBack }) => 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.6, duration: 0.6 }}
-              className="mt-6 flex flex-wrap justify-center gap-3"
+              className="mt-6"
             >
-              {horoscope.influences.map((influence, index) => (
-                <span
-                  key={index}
-                  className="px-3 py-1 bg-purple-800/40 rounded-full text-sm text-purple-200 border border-purple-400/30"
-                >
-                  {influence}
-                </span>
-              ))}
+              <h4 className="text-center text-yellow-300 mb-3 font-semibold">🌟 Your Star Powers Today 🌟</h4>
+              <div className="flex flex-wrap justify-center gap-3">
+                {horoscope.influences.map((influence, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 bg-pink-800/40 rounded-full text-sm text-pink-200 border border-pink-400/30 font-medium"
+                  >
+                    ✨ {influence}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+            
+            {/* Creator Credit */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.8, duration: 0.6 }}
+              className="mt-6 text-center"
+            >
+              <p className="text-pink-300 text-sm">
+                ✨ Made with love by Souhail & Maria ✨
+              </p>
             </motion.div>
           </CardContent>
         </Card>

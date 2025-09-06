@@ -45,11 +45,11 @@ function App() {
                 transition={{ delay: 0.3, duration: 0.6 }}
                 className="text-center mb-12"
               >
-                <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-purple-300 to-blue-300 mb-4">
-                  Celestial Oracle
+                <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-pink-300 to-blue-300 mb-4">
+                  ✨ Star Friends ✨
                 </h1>
                 <p className="text-xl md:text-2xl text-purple-200 font-light">
-                  Discover your cosmic destiny through the stars
+                  Discover your magical star powers and daily adventures!
                 </p>
                 <div className="w-32 h-1 bg-gradient-to-r from-yellow-400 to-purple-500 mx-auto mt-6 rounded-full"></div>
               </motion.div>
@@ -58,14 +58,19 @@ function App() {
               <ZodiacWheel onSignSelect={handleSignSelect} />
               
               {/* Instructions */}
-              <motion.p
+              <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
-                className="text-center text-purple-200 mt-8 text-lg"
+                className="text-center mt-8 space-y-4"
               >
-                Select your zodiac sign to unveil your daily cosmic guidance
-              </motion.p>
+                <p className="text-purple-200 text-lg">
+                  Click on your star sign to discover your magical daily message!
+                </p>
+                <p className="text-purple-300 text-sm">
+                  ✨ Created with love by Souhail & Maria ✨
+                </p>
+              </motion.div>
             </motion.div>
           ) : (
             <motion.div

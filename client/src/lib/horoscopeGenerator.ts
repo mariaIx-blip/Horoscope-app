@@ -311,18 +311,18 @@ const mantras = {
 };
 
 const influences = {
-  "Aries": ["Mars Energy", "Moon Wisdom", "Solar Power"],
-  "Taurus": ["Venus Love", "Earth Grounding", "Lunar Cycles"],
-  "Gemini": ["Mercury Communication", "Air Element", "Dual Nature"],
-  "Cancer": ["Lunar Influence", "Water Flow", "Emotional Tides"],
-  "Leo": ["Solar Radiance", "Fire Spirit", "Heart Power"],
-  "Virgo": ["Mercury Precision", "Earth Stability", "Healing Energy"],
-  "Libra": ["Venus Harmony", "Air Balance", "Justice Current"],
-  "Scorpio": ["Pluto Transformation", "Water Depths", "Phoenix Fire"],
-  "Sagittarius": ["Jupiter Expansion", "Fire Adventure", "Wisdom Seeking"],
-  "Capricorn": ["Saturn Structure", "Earth Foundation", "Mountain Strength"],
-  "Aquarius": ["Uranus Innovation", "Air Freedom", "Electric Vision"],
-  "Pisces": ["Neptune Dreams", "Water Compassion", "Mystical Flow"]
+  "Aries": ["Brave Heart", "Moon Magic", "Sun Power"],
+  "Taurus": ["Love Energy", "Earth Strength", "Moon Hugs"],
+  "Gemini": ["Chatty Magic", "Wind Whispers", "Twin Powers"],
+  "Cancer": ["Moon Love", "Ocean Feelings", "Caring Magic"],
+  "Leo": ["Sun Shine", "Fire Spirit", "Heart Magic"],
+  "Virgo": ["Helper Magic", "Earth Wisdom", "Healing Hands"],
+  "Libra": ["Peace Magic", "Balance Powers", "Fair Play"],
+  "Scorpio": ["Change Magic", "Deep Feelings", "Phoenix Fire"],
+  "Sagittarius": ["Adventure Magic", "Explorer Spirit", "Big Dreams"],
+  "Capricorn": ["Builder Magic", "Mountain Strength", "Goal Power"],
+  "Aquarius": ["Future Magic", "Freedom Wings", "Creative Sparks"],
+  "Pisces": ["Dream Magic", "Ocean Love", "Gentle Flow"]
 };
 
 function getRandomElement<T>(array: T[]): T {
