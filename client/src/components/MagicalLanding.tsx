@@ -182,9 +182,28 @@ const MagicalLanding: React.FC<MagicalLandingProps> = ({ onStartMagic }) => {
           transition={{ duration: 1, delay: 0.5 }}
           className="mb-12"
         >
-          <h1 className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-pink-300 to-blue-300 mb-6">
-            🌟 Celestial Horoscope 🌟
-          </h1>
+          <motion.h1 
+            className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-pink-300 to-blue-300 mb-6"
+            style={{
+              fontFamily: "'Cinzel', 'Playfair Display', serif",
+              textShadow: "0 0 30px rgba(251, 191, 36, 0.5), 0 0 60px rgba(236, 72, 153, 0.3)",
+              filter: "drop-shadow(0 0 15px rgba(59, 130, 246, 0.4))"
+            }}
+            animate={{
+              textShadow: [
+                "0 0 30px rgba(251, 191, 36, 0.5), 0 0 60px rgba(236, 72, 153, 0.3)",
+                "0 0 40px rgba(251, 191, 36, 0.8), 0 0 80px rgba(236, 72, 153, 0.5)",
+                "0 0 30px rgba(251, 191, 36, 0.5), 0 0 60px rgba(236, 72, 153, 0.3)"
+              ]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            Celestial Horoscope
+          </motion.h1>
           
           <motion.p
             initial={{ opacity: 0 }}
