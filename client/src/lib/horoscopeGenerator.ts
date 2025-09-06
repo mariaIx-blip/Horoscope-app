@@ -1,11 +1,14 @@
 import { ZodiacSign } from "./zodiacData";
 import { AstrologicalProfile, moonPhaseThemes } from "./astroCalculations";
+import { getRandomTarotCard, TarotCard } from "./tarotCards";
 
 export interface Horoscope {
   title: string;
   content: string[];
   mantra: string;
   influences: string[];
+  tarotCard?: TarotCard;
+  moonGuidance?: string;
 }
 
 const emotionalThemes = {
@@ -358,6 +361,18 @@ export function generateHoroscope(sign: ZodiacSign): Horoscope {
   };
 }
 
+// Enhanced moon phase guidance
+const moonPhaseGuidance = {
+  "New Moon": "This is a time for setting intentions and planting seeds for the future. Your emotional energy is perfect for new beginnings and fresh starts. Trust your inner wisdom and embrace the blank canvas that lies before you.",
+  "Waxing Crescent": "Your emotions are building momentum like a gentle wave. This is the perfect time to take small, consistent actions toward your dreams. Your patience and persistence will be rewarded.",
+  "First Quarter": "You may feel some emotional tension as you push through challenges. This is normal - you're breaking through barriers to reach the next level. Stay strong and trust your ability to overcome obstacles.",
+  "Waxing Gibbous": "Your emotional energy is almost at its peak. Fine-tune your approach and prepare for the culmination of your efforts. You're so close to your breakthrough - keep going!",
+  "Full Moon": "Your emotions are at their most powerful and intense. This is a time of completion, celebration, and emotional release. Honor your feelings and let go of what no longer serves you.",
+  "Waning Gibbous": "Your emotional energy is shifting toward gratitude and sharing your wisdom. This is a time to reflect on your growth and help others with what you've learned.",
+  "Last Quarter": "Release what's holding you back emotionally. This is a time for forgiveness, letting go, and making space for new opportunities. Trust that endings lead to beautiful beginnings.",
+  "Waning Crescent": "Your emotional energy is quiet and reflective. Rest, recharge, and connect with your inner wisdom. This peaceful time is preparing you for your next cycle of growth."
+};
+
 export function generatePersonalizedHoroscope(profile: AstrologicalProfile): Horoscope {
   const today = new Date().toLocaleDateString('en-US', { 
     weekday: 'long',
@@ -377,13 +392,22 @@ export function generatePersonalizedHoroscope(profile: AstrologicalProfile): Hor
   // Add moon phase influence
   const moonPhaseTheme = moonPhaseThemes[profile.moonPhase.name as keyof typeof moonPhaseThemes];
   
+  // Get a random tarot card for emotional/mental guidance
+  const tarotCard = getRandomTarotCard();
+  
+  // Get enhanced moon guidance
+  const moonGuidance = moonPhaseGuidance[profile.moonPhase.name as keyof typeof moonPhaseGuidance] || moonPhaseGuidance["New Moon"];
+  
   const content = [
     `✨ **Your ${profile.sunSign.name} Sun Energy**: ${sunTheme}`,
     `🌙 **Your ${profile.moonSign.name} Moon Feelings**: ${moonTheme}`,
     `🌅 **Your ${profile.risingSign.name} Rising Power**: ${risingTheme}`,
     `${profile.moonPhase.emoji} **${profile.moonPhase.name} Magic**: ${moonPhaseTheme.energy}`,
     `💫 **Your Growth Journey**: ${growthTheme}`,
-    `🎯 **Moon Phase Action**: ${moonPhaseTheme.action}`
+    `🎯 **Moon Phase Action**: ${moonPhaseTheme.action}`,
+    `🔮 **Tarot Card Guidance**: The ${tarotCard.name} brings you this message: ${tarotCard.emotionalGuidance}`,
+    `🌙 **Moon Phase Emotional Guide**: ${moonGuidance}`,
+    `💪 **Mental Strength**: ${tarotCard.mentalEncouragement}`
   ];
   
   // Combine mantras from different signs
@@ -403,6 +427,8 @@ export function generatePersonalizedHoroscope(profile: AstrologicalProfile): Hor
     title,
     content,
     mantra: combinedMantra,
-    influences: allInfluences
+    influences: allInfluences,
+    tarotCard,
+    moonGuidance
   };
 }

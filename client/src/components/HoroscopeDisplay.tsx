@@ -174,6 +174,48 @@ const HoroscopeDisplay: React.FC<HoroscopeDisplayProps> = ({ astroProfile, birth
                 ))}
               </div>
             </motion.div>
+
+            {/* Tarot Card Section */}
+            {horoscope.tarotCard && (
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.8, duration: 0.8 }}
+                className="mt-8 p-6 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-lg border border-purple-300/20"
+              >
+                <div className="text-center mb-4">
+                  <h3 className="text-xl font-semibold text-purple-200 mb-2">🔮 Your Tarot Card for Today 🔮</h3>
+                  <div className="text-3xl mb-2">{horoscope.tarotCard.name}</div>
+                  <div className="flex justify-center space-x-2 mb-4">
+                    {horoscope.tarotCard.keywords.map((keyword, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-purple-800/40 rounded-full text-sm text-purple-200 border border-purple-400/30"
+                      >
+                        {keyword}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="space-y-4 text-purple-100">
+                  <div className="p-4 bg-purple-800/20 rounded-lg">
+                    <h4 className="font-semibold text-purple-200 mb-2">💜 Card Meaning:</h4>
+                    <p className="text-sm leading-relaxed">{horoscope.tarotCard.meaningUpright}</p>
+                  </div>
+                  
+                  <div className="p-4 bg-purple-800/20 rounded-lg">
+                    <h4 className="font-semibold text-purple-200 mb-2">🌟 Emotional Guidance:</h4>
+                    <p className="text-sm leading-relaxed">{horoscope.tarotCard.emotionalGuidance}</p>
+                  </div>
+                  
+                  <div className="p-4 bg-purple-800/20 rounded-lg">
+                    <h4 className="font-semibold text-purple-200 mb-2">💪 Mental Encouragement:</h4>
+                    <p className="text-sm leading-relaxed">{horoscope.tarotCard.mentalEncouragement}</p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
             
             {/* Creator Credit */}
             <motion.div
@@ -182,9 +224,19 @@ const HoroscopeDisplay: React.FC<HoroscopeDisplayProps> = ({ astroProfile, birth
               transition={{ delay: 1.8, duration: 0.6 }}
               className="mt-6 text-center"
             >
-              <p className="text-pink-300 text-sm">
-                ✨ Made with love by Souhail & Maria ✨
-              </p>
+              <motion.p 
+                className="text-pink-300 text-sm font-medium"
+                animate={{
+                  opacity: [0.7, 1, 0.7],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                Created by Souhail & Maria
+              </motion.p>
             </motion.div>
           </CardContent>
         </Card>
