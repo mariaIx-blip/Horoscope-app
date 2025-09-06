@@ -11,9 +11,10 @@ const BackgroundMusic: React.FC = () => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    // Set audio properties
+    // Set audio properties for a more calm experience
     audio.loop = true;
-    audio.volume = 0.3; // Gentle background volume
+    audio.volume = 0.15; // Much softer, more ambient volume
+    audio.playbackRate = 0.9; // Slightly slower for a more calming effect
     
     // Auto-play after user interaction
     const startMusic = () => {
