@@ -39,7 +39,7 @@ const HoroscopeDisplay: React.FC<HoroscopeDisplayProps> = ({ astroProfile, birth
           className="bg-pink-900/50 border-pink-300/30 text-pink-200 hover:bg-pink-800/50"
         >
           <ArrowLeft className="w-5 h-5 mr-2" />
-          ← Back to Star Friends
+          ← Back to Celestial Horoscope
         </Button>
         
         <div className="flex items-center space-x-2 text-purple-200">

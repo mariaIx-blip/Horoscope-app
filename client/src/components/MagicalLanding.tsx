@@ -183,7 +183,7 @@ const MagicalLanding: React.FC<MagicalLandingProps> = ({ onStartMagic }) => {
           className="mb-12"
         >
           <h1 className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-pink-300 to-blue-300 mb-6">
-            ✨ Star Friends ✨
+            🌟 Celestial Horoscope 🌟
           </h1>
           
           <motion.p
@@ -222,9 +222,9 @@ const MagicalLanding: React.FC<MagicalLandingProps> = ({ onStartMagic }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Sparkles className="w-8 h-8 text-yellow-300 group-hover:animate-spin" />
+              <span className="text-3xl animate-pulse">⭐</span>
               <span>Start the Magic</span>
-              <Sparkles className="w-8 h-8 text-yellow-300 group-hover:animate-spin" />
+              <span className="text-3xl animate-pulse">⭐</span>
             </motion.div>
             
             {/* Button Glow Effect */}
@@ -258,7 +258,7 @@ const MagicalLanding: React.FC<MagicalLandingProps> = ({ onStartMagic }) => {
               filter: "drop-shadow(0 0 10px rgba(236, 72, 153, 0.3))"
             }}
           >
-            ✨ Created with love by Souhail & Maria ✨
+            Created by Souhail & Maria
           </p>
         </motion.div>
 
