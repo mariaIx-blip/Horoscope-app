@@ -87,7 +87,8 @@ export default function TarotPage() {
                 data-testid="img-card-front"
               />
               <p className="text-sm text-center text-foreground" data-testid="text-card-keywords">
-                {data.tarotCard.keywords.join(', ')}
+                {data.tarotCard.keywords ? data.tarotCard.keywords.join(', ') : 
+                 data.tarotCard.upright ? data.tarotCard.upright.slice(0,3).join(', ') : ''}
               </p>
             </div>
           </div>
@@ -102,41 +103,101 @@ export default function TarotPage() {
               </h3>
               
               <div className="space-y-6 text-left">
+                {/* Card Description */}
+                {data.tarotCard.description && (
+                  <div>
+                    <h4 className="text-lg font-semibold text-secondary mb-2" data-testid="text-description-title">
+                      About This Card:
+                    </h4>
+                    <p className="text-foreground leading-relaxed italic" data-testid="text-card-description">
+                      {data.tarotCard.description}
+                    </p>
+                  </div>
+                )}
+                
+                {/* Upright Meanings */}
                 <div>
                   <h4 className="text-lg font-semibold text-secondary mb-2" data-testid="text-upright-title">
                     Upright Meaning:
                   </h4>
+                  {data.tarotCard.upright && data.tarotCard.upright.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {data.tarotCard.upright.map((keyword, index) => (
+                        <span 
+                          key={index}
+                          className="bg-accent/30 px-3 py-1 rounded-full text-sm text-foreground"
+                          data-testid={`upright-keyword-${index}`}
+                        >
+                          {keyword}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                   <p className="text-foreground leading-relaxed" data-testid="text-upright-meaning">
-                    {data.tarotCard.meaningUpright}
+                    {data.tarotCard.meaningUpright || data.tarotCard.meaning || 'This card brings positive energy and guidance to your journey.'}
                   </p>
                 </div>
+
+                {/* Reversed Meanings */}
+                {data.tarotCard.reversed && data.tarotCard.reversed.length > 0 && (
+                  <div>
+                    <h4 className="text-lg font-semibold text-secondary mb-2" data-testid="text-reversed-title">
+                      Reversed Meaning:
+                    </h4>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {data.tarotCard.reversed.map((keyword, index) => (
+                        <span 
+                          key={index}
+                          className="bg-primary/30 px-3 py-1 rounded-full text-sm text-foreground"
+                          data-testid={`reversed-keyword-${index}`}
+                        >
+                          {keyword}
+                        </span>
+                      ))}
+                    </div>
+                    {data.tarotCard.meaningReversed && (
+                      <p className="text-foreground leading-relaxed" data-testid="text-reversed-meaning">
+                        {data.tarotCard.meaningReversed}
+                      </p>
+                    )}
+                  </div>
+                )}
                 
-                <div>
-                  <h4 className="text-lg font-semibold text-secondary mb-2" data-testid="text-emotional-title">
-                    Emotional Guidance:
-                  </h4>
-                  <p className="text-foreground leading-relaxed" data-testid="text-emotional-guidance">
-                    {data.tarotCard.emotionalGuidance}
-                  </p>
-                </div>
+                {/* Emotional Guidance */}
+                {data.tarotCard.emotionalGuidance && (
+                  <div>
+                    <h4 className="text-lg font-semibold text-secondary mb-2" data-testid="text-emotional-title">
+                      Emotional Guidance:
+                    </h4>
+                    <p className="text-foreground leading-relaxed" data-testid="text-emotional-guidance">
+                      {data.tarotCard.emotionalGuidance}
+                    </p>
+                  </div>
+                )}
                 
-                <div>
-                  <h4 className="text-lg font-semibold text-secondary mb-2" data-testid="text-encouragement-title">
-                    Mental Encouragement:
-                  </h4>
-                  <p className="text-foreground leading-relaxed" data-testid="text-mental-encouragement">
-                    {data.tarotCard.mentalEncouragement}
-                  </p>
-                </div>
+                {/* Mental Encouragement */}
+                {data.tarotCard.mentalEncouragement && (
+                  <div>
+                    <h4 className="text-lg font-semibold text-secondary mb-2" data-testid="text-encouragement-title">
+                      Mental Encouragement:
+                    </h4>
+                    <p className="text-foreground leading-relaxed" data-testid="text-mental-encouragement">
+                      {data.tarotCard.mentalEncouragement}
+                    </p>
+                  </div>
+                )}
                 
-                <div className="bg-secondary/20 p-4 rounded-lg">
-                  <h4 className="text-lg font-semibold text-secondary mb-2" data-testid="text-child-message-title">
-                    Magical Message for You:
-                  </h4>
-                  <p className="text-foreground leading-relaxed font-handwritten text-lg" data-testid="text-child-message">
-                    Dear {data.childName}, {data.tarotCard.childMessage}
-                  </p>
-                </div>
+                {/* Child Message */}
+                {data.tarotCard.childMessage && (
+                  <div className="bg-secondary/20 p-4 rounded-lg">
+                    <h4 className="text-lg font-semibold text-secondary mb-2" data-testid="text-child-message-title">
+                      Magical Message for You:
+                    </h4>
+                    <p className="text-foreground leading-relaxed font-handwritten text-lg" data-testid="text-child-message">
+                      Dear {data.childName}, {data.tarotCard.childMessage}
+                    </p>
+                  </div>
+                )}
               </div>
             </CardContent>
           </Card>
