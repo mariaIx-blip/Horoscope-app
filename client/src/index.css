@@ -1,182 +1,227 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&family=Caveat:wght@400;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: hsl(222, 47%, 11%);
-  --foreground: hsl(210, 40%, 98%);
-  --card: hsl(217, 33%, 17%);
-  --card-foreground: hsl(210, 40%, 98%);
-  --popover: hsl(217, 33%, 17%);
-  --popover-foreground: hsl(210, 40%, 98%);
-  --primary: hsl(262, 83%, 58%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(271, 67%, 32%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --muted: hsl(215, 25%, 27%);
-  --muted-foreground: hsl(218, 11%, 65%);
-  --accent: hsl(43, 96%, 56%);
-  --accent-foreground: hsl(222, 47%, 11%);
-  --destructive: hsl(0, 63%, 31%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --border: hsl(215, 16%, 47%);
-  --input: hsl(215, 25%, 27%);
-  --ring: hsl(262, 83%, 58%);
-  --radius: 12px;
-  --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Playfair Display', serif;
-  --font-mono: 'Fira Code', monospace;
+  --background: hsl(249, 47%, 8%);
+  --foreground: hsl(0, 0%, 98%);
+  --card: hsl(249, 39%, 14%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --popover: hsl(249, 39%, 14%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --primary: hsl(243, 75%, 59%);
+  --primary-foreground: hsl(0, 0%, 98%);
+  --secondary: hsl(45, 93%, 57%);
+  --secondary-foreground: hsl(249, 47%, 8%);
+  --muted: hsl(244, 71%, 91%);
+  --muted-foreground: hsl(249, 47%, 8%);
+  --accent: hsl(213, 93%, 68%);
+  --accent-foreground: hsl(249, 47%, 8%);
+  --destructive: hsl(0, 62%, 30%);
+  --destructive-foreground: hsl(0, 85%, 97%);
+  --border: hsl(249, 39%, 24%);
+  --input: hsl(249, 39%, 14%);
+  --ring: hsl(243, 75%, 59%);
+  --radius: 0.75rem;
+  --chart-1: hsl(12, 76%, 61%);
+  --chart-2: hsl(173, 58%, 39%);
+  --chart-3: hsl(197, 37%, 24%);
+  --chart-4: hsl(43, 74%, 66%);
+  --chart-5: hsl(27, 87%, 67%);
+  --sidebar-background: hsl(249, 39%, 14%);
+  --sidebar-foreground: hsl(0, 0%, 98%);
+  --sidebar-primary: hsl(243, 75%, 59%);
+  --sidebar-primary-foreground: hsl(0, 0%, 98%);
+  --sidebar-accent: hsl(213, 93%, 68%);
+  --sidebar-accent-foreground: hsl(249, 47%, 8%);
+  --sidebar-border: hsl(249, 39%, 24%);
+  --sidebar-ring: hsl(243, 75%, 59%);
+  --font-magical: 'Pacifico', cursive;
+  --font-story: 'Quicksand', sans-serif;
+  --font-handwritten: 'Caveat', cursive;
 }
 
-@layer base {
-  * {
-    @apply border-border;
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-story);
+}
+
+/* Custom animations */
+@keyframes twinkle {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: scale(1); 
   }
-  body {
-    @apply bg-background text-foreground;
-    font-family: var(--font-sans);
-  }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif);
+  50% { 
+    opacity: 1; 
+    transform: scale(1.2); 
   }
 }
 
-/* Celestial background effects */
-.celestial-bg {
-  background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%);
-  position: relative;
+@keyframes glow {
+  from { 
+    box-shadow: 0 0 20px hsl(243, 75%, 59%, 0.5); 
+  }
+  to { 
+    box-shadow: 0 0 40px hsl(243, 75%, 59%, 0.8), 0 0 60px hsl(45, 93%, 57%, 0.4); 
+  }
 }
 
-.celestial-bg::before {
-  content: '';
-  position: absolute;
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-20px) rotate(180deg); 
+  }
+}
+
+@keyframes flip {
+  0% { transform: rotateY(0); }
+  50% { transform: rotateY(90deg); }
+  100% { transform: rotateY(0); }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.font-magical {
+  font-family: var(--font-magical);
+}
+
+.font-story {
+  font-family: var(--font-story);
+}
+
+.font-handwritten {
+  font-family: var(--font-handwritten);
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-flip {
+  animation: flip 0.8s ease-in-out;
+}
+
+.animate-typewriter {
+  animation: typewriter 3s steps(40) forwards;
+}
+
+.stars {
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(2px 2px at 20px 30px, rgba(245, 158, 11, 0.8), transparent),
-    radial-gradient(2px 2px at 40px 70px, rgba(147, 51, 234, 0.6), transparent),
-    radial-gradient(1px 1px at 90px 40px, rgba(245, 158, 11, 0.5), transparent),
-    radial-gradient(1px 1px at 130px 80px, rgba(147, 51, 234, 0.4), transparent),
-    radial-gradient(2px 2px at 160px 30px, rgba(245, 158, 11, 0.6), transparent);
-  background-repeat: repeat;
-  background-size: 200px 100px;
-  opacity: 0.8;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
+  z-index: 0;
 }
 
-/* Dynamic text animation */
-.dynamic-text {
-  background: linear-gradient(45deg, hsl(var(--accent)), hsl(var(--primary)));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 3s ease-in-out infinite alternate;
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
 }
 
-@keyframes shimmer {
-  0% { opacity: 0.8; }
-  100% { opacity: 1; }
-}
-
-/* Card glow effect */
-.card-glow {
-  box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
-}
-
-/* Tarot card perspective */
-.tarot-card {
+.card-flip {
   perspective: 1000px;
 }
 
-.tarot-card-inner {
+.card-flip-inner {
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
 }
 
-/* Custom scrollbar for horoscope results */
-.results-container {
-  max-height: 80vh;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: hsl(var(--primary)) hsl(var(--muted));
+.card-flip.flipped .card-flip-inner {
+  transform: rotateY(180deg);
 }
 
-.results-container::-webkit-scrollbar {
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.75rem;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.magical-border {
+  background: linear-gradient(45deg, hsl(243, 75%, 59%), hsl(45, 93%, 57%), hsl(213, 93%, 68%), hsl(243, 75%, 59%));
+  background-size: 400% 400%;
+  animation: gradient-shift 4s ease infinite;
+  padding: 3px;
+  border-radius: 1rem;
+}
+
+.sidebar-transition {
+  transition: transform 0.3s ease-in-out;
+}
+
+.typewriter-text {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid hsl(45, 93%, 57%);
+  animation: typewriter 3s steps(40) forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .font-magical {
+    font-size: 2.5rem;
+  }
+}
+
+/* Ensure proper text contrast */
+.bg-gradient-to-r {
+  color: hsl(var(--primary-foreground));
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
   width: 8px;
 }
 
-.results-container::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: hsl(var(--muted));
-  border-radius: 4px;
 }
 
-.results-container::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: hsl(var(--primary));
   border-radius: 4px;
 }
 
-.results-container::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--accent));
-}
-
-/* Hover effects for interactive cards */
-.hover-lift {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Star sparkle animation */
-.star-sparkle {
-  animation: sparkle 2s ease-in-out infinite;
-}
-
-@keyframes sparkle {
-  0%, 100% { 
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% { 
-    transform: scale(1.2);
-    opacity: 0.8;
-  }
-}
-
-/* Gradient text for special elements */
-.gradient-text {
-  background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent)));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Form input focus states */
-.form-input:focus {
-  ring-color: hsl(var(--primary));
-  border-color: transparent;
-  box-shadow: 0 0 0 2px hsl(var(--primary));
-}
-
-/* Loading animation */
-.loading-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary), 0.8);
 }
