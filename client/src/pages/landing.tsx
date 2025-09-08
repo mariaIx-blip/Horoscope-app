@@ -5,7 +5,7 @@ export default function Landing() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center relative px-6" data-testid="section-landing">
       {/* Magical cosmic background with stars and nebula effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 opacity-80"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 opacity-70"></div>
       
       {/* Floating magical elements */}
       <div className="absolute top-20 left-20 text-6xl animate-float" data-testid="decoration-sparkle">✨</div>
@@ -22,7 +22,7 @@ export default function Landing() {
         </h1>
         
         {/* Subtitle */}
-        <p className="text-xl md:text-2xl text-muted mb-12 font-light" data-testid="text-subtitle">
+        <p className="text-xl md:text-2xl text-foreground mb-12 font-light text-readable" data-testid="text-subtitle">
           Discover magical stories written in the stars just for you!
         </p>
         
@@ -37,7 +37,7 @@ export default function Landing() {
         </Link>
         
         {/* Attribution */}
-        <p className="text-sm text-muted-foreground mt-8 font-handwritten text-lg" data-testid="text-attribution">
+        <p className="text-sm text-foreground mt-8 font-handwritten text-lg text-readable-light" data-testid="text-attribution">
           Created by Souhail & Maria
         </p>
       </div>

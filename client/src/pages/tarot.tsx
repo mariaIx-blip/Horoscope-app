@@ -45,13 +45,13 @@ export default function TarotPage() {
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center relative px-6" data-testid="section-tarot">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-indigo-900 to-pink-900 opacity-80"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-indigo-900 to-pink-900 opacity-60"></div>
       
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <h2 className="text-5xl font-magical text-secondary mb-8" data-testid="text-tarot-title">
+        <h2 className="text-5xl font-magical text-secondary mb-8 text-readable-light" data-testid="text-tarot-title">
           Your Magical Gift
         </h2>
-        <p className="text-xl text-muted mb-12" data-testid="text-tarot-subtitle">
+        <p className="text-xl text-foreground mb-12 text-readable" data-testid="text-tarot-subtitle">
           A special tarot card has chosen you! Click to reveal your cosmic message.
         </p>
         

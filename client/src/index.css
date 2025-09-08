@@ -6,22 +6,22 @@
 :root {
   --background: hsl(249, 47%, 8%);
   --foreground: hsl(0, 0%, 98%);
-  --card: hsl(249, 39%, 14%);
+  --card: hsl(249, 39%, 18%);
   --card-foreground: hsl(0, 0%, 98%);
-  --popover: hsl(249, 39%, 14%);
+  --popover: hsl(249, 39%, 18%);
   --popover-foreground: hsl(0, 0%, 98%);
   --primary: hsl(243, 75%, 59%);
   --primary-foreground: hsl(0, 0%, 98%);
   --secondary: hsl(45, 93%, 57%);
   --secondary-foreground: hsl(249, 47%, 8%);
-  --muted: hsl(244, 71%, 91%);
-  --muted-foreground: hsl(249, 47%, 8%);
+  --muted: hsl(0, 0%, 92%);
+  --muted-foreground: hsl(0, 0%, 85%);
   --accent: hsl(213, 93%, 68%);
   --accent-foreground: hsl(249, 47%, 8%);
   --destructive: hsl(0, 62%, 30%);
   --destructive-foreground: hsl(0, 85%, 97%);
-  --border: hsl(249, 39%, 24%);
-  --input: hsl(249, 39%, 14%);
+  --border: hsl(249, 39%, 28%);
+  --input: hsl(249, 39%, 18%);
   --ring: hsl(243, 75%, 59%);
   --radius: 0.75rem;
   --chart-1: hsl(12, 76%, 61%);
@@ -50,6 +50,26 @@ body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: var(--font-story);
+}
+
+/* Enhanced text readability */
+.text-readable {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+.text-readable-light {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.bg-card-enhanced {
+  background: hsl(var(--card) / 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid hsl(var(--border) / 0.6);
+}
+
+.bg-overlay-dark {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
 }
 
 /* Custom animations */

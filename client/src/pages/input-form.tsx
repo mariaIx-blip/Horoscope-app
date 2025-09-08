@@ -13,7 +13,7 @@ import { getRandomTarotCard } from "@/lib/tarotCards";
 const formSchema = z.object({
   childName: z.string().min(2, "Name must be at least 2 characters"),
   birthDate: z.string().min(1, "Birth date is required"),
-  birthTime: z.string().optional(),
+  birthTime: z.string().min(1, "Birth time is required for accurate moon calculations"),
   birthLocation: z.string().min(2, "Birth location is required"),
 });
 
@@ -28,7 +28,7 @@ export default function InputForm() {
     defaultValues: {
       childName: "",
       birthDate: "",
-      birthTime: "",
+      birthTime: "12:00",
       birthLocation: "",
     },
   });
@@ -65,12 +65,12 @@ export default function InputForm() {
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center relative px-6" data-testid="section-input-form">
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 opacity-80"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 opacity-60"></div>
       
       <div className="relative z-10 w-full max-w-lg">
-        <Card className="bg-card/90 backdrop-blur-lg border border-border shadow-2xl" data-testid="card-input-form">
+        <Card className="bg-card-enhanced shadow-2xl" data-testid="card-input-form">
           <CardContent className="p-8">
-            <h2 className="text-4xl font-magical text-center text-secondary mb-8" data-testid="text-form-title">
+            <h2 className="text-4xl font-magical text-center text-secondary mb-8 text-readable-light" data-testid="text-form-title">
               Tell Us About You
             </h2>
             

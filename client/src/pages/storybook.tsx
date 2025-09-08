@@ -55,16 +55,16 @@ export default function Storybook() {
 
   return (
     <section className="min-h-screen py-12 px-6 relative" data-testid="section-storybook">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 opacity-80"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 opacity-60"></div>
       
       <div className="relative z-10 max-w-4xl mx-auto">
-        <h2 className="text-5xl font-magical text-center text-secondary mb-12" data-testid="text-story-title">
+        <h2 className="text-5xl font-magical text-center text-secondary mb-12 text-readable-light" data-testid="text-story-title">
           Your Magical Story
         </h2>
         
         {/* Chapter 1: Introduction */}
         <div className="magical-border mb-8" data-testid="chapter-1">
-          <Card className="bg-card rounded-lg">
+          <Card className="bg-card-enhanced rounded-lg">
             <CardContent className="p-8">
               <h3 className="text-2xl font-magical text-accent mb-4" data-testid="text-chapter-1-title">
                 Chapter 1: The Star Child
