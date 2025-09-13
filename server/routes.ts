@@ -1,8 +1,12 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { z } from "zod";
-import { getRandomTarotCard, getTarotCardByName, allTarotCards } from "../client/src/lib/tarotCards";
-import { getZodiacSign, zodiacSigns } from "../client/src/lib/zodiacData";
+import {
+  getRandomTarotCard,
+  getTarotCardByName,
+  allTarotCards,
+} from "./lib/tarotCards";
+import { getZodiacSign, zodiacSigns } from "./lib/zodiacData";
 
 const generateHoroscopeSchema = z.object({
   childName: z.string().min(2),
@@ -43,11 +47,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/tarot/:name", (req, res) => {
     const { name } = req.params;
     const card = getTarotCardByName(decodeURIComponent(name));
-    
+
     if (!card) {
       return res.status(404).json({ error: "Tarot card not found" });
     }
-    
+
     res.json({ card });
   });
 
@@ -55,33 +59,40 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/horoscope/generate", (req, res) => {
     try {
       const validation = generateHoroscopeSchema.safeParse(req.body);
-      
+
       if (!validation.success) {
-        return res.status(400).json({ 
-          error: "Validation failed", 
-          details: validation.error.errors 
+        return res.status(400).json({
+          error: "Validation failed",
+          details: validation.error.errors,
         });
       }
 
-      const { childName, birthDate, birthTime, birthLocation } = validation.data;
-      
+      const { childName, birthDate, birthTime, birthLocation } =
+        validation.data;
+
       // Get zodiac sign and random tarot card
       const zodiacSign = getZodiacSign(birthDate);
       const tarotCard = getRandomTarotCard();
-      
+
       // Generate story chapters
       const story = {
         chapter1: `Once upon a time, in a land where stars whisper secrets and planets dance in the cosmic ballet, there was born a very special child named ${childName}. On the day of their birth, the universe itself smiled, knowing that someone truly magical had entered the world...`,
-        
+
         chapter2: `On the day ${childName} was born, the ${zodiacSign.name} constellation shimmered brighter than ever before. The ${zodiacSign.symbol} symbol appeared in the clouds, marking this child as one blessed with the gifts of ${zodiacSign.element}. ${zodiacSign.childPersonality}`,
-        
-        chapter3: `As ${childName} grew, wonderful magical abilities began to bloom. Being ruled by ${zodiacSign.ruling_planet}, this special child discovered they had ${zodiacSign.magicalPowers}. Their favorite colors of ${zodiacSign.favoriteColors.join(', ')} would appear wherever they went, bringing joy and wonder to all who saw them.`
+
+        chapter3: `As ${childName} grew, wonderful magical abilities began to bloom. Being ruled by ${
+          zodiacSign.ruling_planet
+        }, this special child discovered they had ${
+          zodiacSign.magicalPowers
+        }. Their favorite colors of ${zodiacSign.favoriteColors.join(
+          ", "
+        )} would appear wherever they went, bringing joy and wonder to all who saw them.`,
       };
 
       // Create personalized tarot message
       const personalizedTarotCard = {
         ...tarotCard,
-        childMessage: `Dear ${childName}, ${tarotCard.childMessage}`
+        childMessage: `Dear ${childName}, ${tarotCard.childMessage}`,
       };
 
       const horoscope = {
@@ -92,13 +103,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
         zodiacSign,
         story,
         tarotCard: personalizedTarotCard,
-        generatedAt: new Date().toISOString()
+        generatedAt: new Date().toISOString(),
       };
 
       res.json({ horoscope });
-      
     } catch (error) {
-      console.error('Error generating horoscope:', error);
+      console.error("Error generating horoscope:", error);
       res.status(500).json({ error: "Failed to generate horoscope" });
     }
   });
